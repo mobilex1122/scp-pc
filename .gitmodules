@@ -1,0 +1,3 @@
+[submodule "data"]
+	path = data
+	url = https://github.com/mobilex1122/scp-pc-cz-database.git

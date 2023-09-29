@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" style="overflow: hidden">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://unpkg.com/98.css" />
+		<script src="jquery/main.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+		<link rel="stylesheet" href="css/main.css" />
+		<link
+			rel="shortcut icon"
+			href="img/scp-old-small.png"
+			type="image/x-icon"
+		/>
+		<title>SCP Foundation - M.D.M.S</title>
+	</head>
+	<body style="margin: 0; overflow: hidden; height: 100vh">
+		<div class="wallpaper"></div>
+		<div class="title-bar">
+			<div class="title-bar-text">SCP Foundation - M.D.M.S.</div>
+			<div class="title-bar-controls">
+				<button
+					onclick="window.location.href = './#logout'"
+					style="padding-inline: 5px"
+				>
+					Log out
+				</button>
+			</div>
+		</div>
+
+		<!-- DESKTOP -->
+		<div class="desktop">
+			<button onclick="OpenFolder('s1')">
+				<img src="img/icons/directory_closed-3.png" alt="" />
+				<span>Serie 1</span>
+			</button>
+
+			<button onclick="OpenArticle('system/about/', 'O Systému', true)">
+				<img src="img/icons/msinfo32-1.png" alt="" />
+				<span>O Systému</span>
+			</button>
+			<button onclick="OpenArticle('system/readme/', 'README')">
+				<img src="img/icons/message_file-0.png" alt="" />
+				<span>README</span>
+			</button>
+			<button onclick="OpenArticle('system/odkamarada/', 'odkamarada.md')">
+				<img src="img/icons/message_file-0.png" alt="" />
+				<span>odkamarada.md</span>
+			</button>
+		</div>
+
+		<!-- WINDOWS -->
+
+		<div id="window-container"></div>
+
+		<script src="js/main.js"></script>
+	</body>
+</html>

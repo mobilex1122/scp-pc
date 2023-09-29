@@ -1,0 +1,257 @@
+div.wallpaper {
+	position: fixed;
+	background-image: url("../img/wall.jpg");
+	background-position: center;
+	inset: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: -1;
+	filter: brightness(0.2);
+}
+div.wallpaper::after {
+	content: "";
+	position: fixed;
+	background-image: url("../img/scp-old.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	inset: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: -1;
+	filter: brightness(2) drop-shadow(black 0 4px 5px);
+}
+
+div.loading {
+	position: fixed;
+	inset: 0;
+	background-color: black;
+	background-image: url("../img/scp-old-small.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: brightness(0.2);
+	opacity: 1;
+	width: 100%;
+	height: 100vh;
+	z-index: 999;
+	animation: loading-show 1s 0.3s steps(7) forwards;
+}
+
+div.loading::after {
+	content: "";
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 10px;
+	background: linear-gradient(90deg, navy, #1084d0, navy);
+	opacity: 0;
+	animation: loading-bar 2s 2s steps(10) infinite forwards;
+}
+
+@keyframes loading-show {
+	0% {
+		filter: brightness(0);
+	}
+	100% {
+		filter: brightness(1);
+	}
+}
+
+@keyframes loading-bar {
+	0% {
+		opacity: 1;
+		background-position: 0%;
+	}
+	100% {
+		opacity: 1;
+		background-position: 100vw;
+	}
+}
+
+div.loading.hide {
+	pointer-events: none;
+	opacity: 0;
+}
+
+/* FONT FIX */
+
+h1 {
+	font-size: x-large;
+}
+
+h2 {
+	font-size: large;
+}
+
+/* Upgrades for 98 css  */
+
+.window {
+	pointer-events: all;
+	animation: flash 100ms;
+}
+@keyframes flash {
+	40% {
+		filter: invert(1) grayscale(1);
+	}
+	80% {
+		filter: brightness(2);
+	}
+}
+
+@keyframes flash2 {
+	40% {
+		filter: invert(1) grayscale(1);
+	}
+	80% {
+		filter: brightness(2);
+	}
+}
+
+body.wait {
+	cursor: wait;
+}
+
+.window a {
+	cursor: pointer;
+	text-decoration: none;
+}
+.window a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.window.scale {
+	display: flex;
+	flex-direction: column;
+	resize: both;
+	overflow: auto;
+	min-width: 200px;
+	max-width: 80vw;
+
+	min-height: 200px;
+	max-height: 90vh;
+}
+
+.window.mini {
+	resize: none;
+	display: flex;
+	flex-direction: column;
+	min-width: 130px;
+	max-width: 0vw;
+	overflow: hidden;
+	min-height: 20px;
+	max-height: 0vh;
+	animation: flash2 100ms;
+}
+
+.window-body iframe {
+	width: 100%;
+	height: 100%;
+	border: gray inset 2px;
+	background-color: white;
+	box-sizing: border-box;
+}
+.window.scale .window-body {
+	overflow: auto;
+	flex-grow: 1;
+}
+.window.scale .title-bar-text {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.desktop {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	height: calc(100vh - 20px);
+	margin: 10px;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: start;
+
+	align-content: start;
+}
+* {
+	user-select: none;
+}
+
+.window.ui-draggable-dragging {
+	mask-image: url("../img/filter.png");
+	-webkit-mask-image: url("../img/filter.png");
+}
+
+.window-body:hover {
+	user-select: text;
+}
+.window-body:hover * {
+	user-select: text;
+}
+#window-container {
+	position: fixed;
+	inset: 0;
+	top: 20px;
+	pointer-events: none;
+}
+
+.desktop button {
+	padding: 10px;
+	min-width: 50px;
+	background-color: transparent;
+	border: rgba(255, 255, 255, 0) dotted 1.5px;
+	box-shadow: none;
+	color: white;
+	box-sizing: border-box;
+}
+
+.desktop button:is(:hover, :focus) {
+	border: white dotted 1.5px;
+	box-shadow: none;
+}
+
+.desktop button * {
+	display: block;
+	text-align: center;
+	margin-inline: auto;
+}
+
+.tree-view {
+	overflow: auto;
+}
+
+.tree-view button {
+	padding: 0px;
+	min-width: 0;
+	min-height: 0;
+	text-decoration: none;
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	text-align: left;
+}
+
+.tree-view button {
+	padding: 0px;
+	min-width: 0;
+	min-height: 0;
+	text-decoration: none;
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+.tree-view button:is(:hover, :focus) {
+	outline: none;
+	padding: 0px;
+	min-width: 0;
+	min-height: 0;
+	text-decoration: underline;
+	border: none;
+	box-shadow: none;
+}
+
+.window blockquote {
+	border: rgb(20, 20, 20) dotted 1px;
+	padding: 10px;
+}

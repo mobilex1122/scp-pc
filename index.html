@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<title>SCP Foundation - M.D.M.S</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://unpkg.com/98.css" />
+		<script src="jquery/main.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+		<link
+			rel="shortcut icon"
+			href="img/scp-old-small.png"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<div class="wallpaper"></div>
+		<div id="login" class="window" style="width: fit-content">
+			<div class="title-bar">
+				<div class="title-bar-text">Login</div>
+			</div>
+			<div class="window-body">
+				<div class="field-row-stacked" style="width: 200px; text-align: center">
+					<img
+						src="img/scp-old-small.png"
+						style="display: block; aspect-ratio: 1"
+						alt=""
+					/>
+				</div>
+
+				<form action="./main.html">
+					<div class="field-row-stacked" style="width: 200px">
+						<label for="text18">Username</label>
+						<input id="text18" type="text" required />
+					</div>
+					<div class="field-row-stacked" style="width: 200px">
+						<label for="text19">Password</label>
+						<input id="text19" required type="password" />
+					</div>
+					<div class="field-row">
+						<button>Login</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="loading" class="loading"></div>
+		<script>
+			jQuery.fn.center = function () {
+				this.css("position", "absolute");
+				this.css(
+					"top",
+					Math.max(
+						0,
+						($(window).height() - $(this).outerHeight()) / 2 +
+							$(window).scrollTop()
+					) + "px"
+				);
+				this.css(
+					"left",
+					Math.max(
+						0,
+						($(window).width() - $(this).outerWidth()) / 2 +
+							$(window).scrollLeft()
+					) + "px"
+				);
+				return this;
+			};
+			$(function () {
+				$("#login").draggable({ handle: ".title-bar" });
+				$("div").disableSelection();
+			});
+
+			if (sessionStorage.getItem("logout") == "true") {
+				document.getElementById("loading").classList.add("hide");
+			}
+			sessionStorage.setItem("logout", "true");
+			$("#login").center();
+			setTimeout(
+				() => {
+					document.getElementById("loading").classList.add("hide");
+				},
+				4000 + Math.random() * 5000
+			);
+		</script>
+	</body>
+</html>
